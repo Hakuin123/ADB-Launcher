@@ -86,18 +86,20 @@ exit
 
 
 
-
 :fix
 echo == 执行遇到错误，尝试修复ing ==
-echo 关闭正在运行的其它ADB进程防止冲突...
+echo 尝试关闭正在运行的其它ADB进程防止冲突...
 taskkill /F /IM adb.exe||echo 若提示没有找到进程说明无ADB冲突，可忽略
 echo.
+echo 尝试查看 ADB 默认端口（5037）是否被占用...
+netstat -aon | findstr 5037
+echo 若显示结果，则代表该端口已被其他进程占用。回显最右侧为该进程对应 PID，请在任务管理器中手动将其关闭
+echo.
 echo == 常见问题 ==
-echo 1. 若提示“'adb' 不是内部或外部命令...”请确保此脚本是否和ADB相关工具放在同一文件夹下，或确保你的计算机是否有ADB执行环境（可参考网络教程）
-echo 2. 激活应用时若提示“no such file or directory”请先在设备上启动一次该应用
+echo 1. 若提示“'adb' 不是内部或外部命令...”，请确保此脚本是否和 ADB 相关工具放在同一文件夹下，或确保你的计算机是否有ADB执行环境（可参考网络教程）
+echo 2. 激活某个应用时若提示“no such file or directory”，请先在设备上启动一次该应用
+echo 3. 若提示“adb server version (7601) doesn't match this client (41); killing...”，请关闭计算机上正在运行的“手机助手”类软件，如“360手机助手”“鲁大师手机助手”等
 echo.
 pause
-echo.
+cls
 goto start
-
-

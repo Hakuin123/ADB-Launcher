@@ -10,7 +10,7 @@ adb version
 if not %errorlevel%==0 (
 echo 未找到 ADB（Android Debug Bridge）！请确保这台计算机拥有 ADB 运行环境（可参考网络教程）
 echo Android SDK 平台工具：https://googledownloads.cn/android/repository/platform-tools-latest-windows.zip
-echo 请使用浏览器打开上面的链接，下载并解压 'platform-tools' 文件夹，将此.bat文件放在该文件夹下，再次运行此.bat文件
+echo 请使用浏览器打开上面的链接，下载并解压其中的 'platform-tools' 文件夹，将此.bat文件放在该文件夹下，再次运行此.bat文件
 pause
 exit
 )
