@@ -24,7 +24,7 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 - [冰箱](https://www.coolapk.com/apk/com.catchingnow.icebox)
 - [黑阈](https://brevent.jianyv.com/)
 - [小黑屋](https://stopapp.https.gs/)（麦克斯韦妖）
-- []()
+- [权限狗](https://www.baidu.com/s?wd=%E6%9D%83%E9%99%90%E7%8B%97)
 
 ### 设备管理员（Device Admin）
 
