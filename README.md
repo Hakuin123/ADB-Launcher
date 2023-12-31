@@ -10,7 +10,7 @@
 - 激活 Shizuku 等需要 ADB 权限的应用
 - 自动识别并跳过激活未安装的应用
 - 未找到 ADB 工具时提醒并给出解决方案
-- 执行遇到错误时尝试关闭正在运行的其它ADB进程防止冲突
+- 执行遇到错误时尝试关闭正在运行的其它 ADB 进程防止冲突
 - 执行遇到错误时提供疑难解答
 
 ## 支持激活的应用
@@ -23,7 +23,8 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 - [Scene](http://vtools.omarea.com/#/)
 - [冰箱](https://www.coolapk.com/apk/com.catchingnow.icebox)
 - [黑阈](https://brevent.jianyv.com/)
-- [小黑屋]()（麦克斯韦妖）
+- [小黑屋](https://stopapp.https.gs/)（麦克斯韦妖）
+- []()
 
 ### 设备管理员（Device Admin）
 
