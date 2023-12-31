@@ -2,7 +2,7 @@
 chcp 936
 ::Èç¹û³öÏÖÂÒÂëÇë³¢ÊÔÊ¹ÓÃUTF-8°æ±¾
 cls
-title ADB£¬Æô¶¯£¡  by °×ÒşHakuin
+title ADB£¬Æô¶¯£¡  v1.1  by °×ÒşHakuin
 
 :check
 echo = ¼ì²é ADB »·¾³=
@@ -39,8 +39,8 @@ echo.
 :Shizuku
 adb shell pm list packages | findstr /i "moe.shizuku.privileged.api" > nul
 if %errorlevel%==0 (
-echo ÒÑ°²×° Shizuku£¬Ö´ĞĞÆô¶¯ÃüÁî...
-  adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh||goto fix
+  echo ÒÑ°²×° Shizuku£¬Ö´ĞĞÆô¶¯ÃüÁî...
+  adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh || goto fix
 ) else (
   echo Î´°²×° Shizuku£¬Ìø¹ıÆô¶¯
 )
@@ -50,8 +50,8 @@ echo.
 :Scene
 adb shell pm list packages | findstr /i "com.omarea.vtools" > nul
 if %errorlevel%==0 (
-echo ÒÑ°²×° Scene£¬Ö´ĞĞ¼¤»îÃüÁî...
-  adb shell sh /sdcard/Android/data/com.omarea.vtools/up.sh||goto fix
+  echo ÒÑ°²×° Scene£¬Ö´ĞĞ¼¤»îÃüÁî...
+  adb shell sh /sdcard/Android/data/com.omarea.vtools/up.sh || goto fix
 ) else (
   echo Î´°²×° Scene£¬Ìø¹ı¼¤»î
 )
@@ -61,8 +61,8 @@ echo.
 :icebox
 adb shell pm list packages | findstr /i "com.catchingnow.icebox" > nul
 if %errorlevel%==0 (
-echo ÒÑ°²×° ±ùÏä£¬Ö´ĞĞ¼¤»îÃüÁî...
-  adb shell sh /sdcard/Android/data/com.catchingnow.icebox/files/start.sh||goto fix
+  echo ÒÑ°²×° ±ùÏä£¬Ö´ĞĞ¼¤»îÃüÁî...
+  adb shell sh /sdcard/Android/data/com.catchingnow.icebox/files/start.sh || goto fix
 ) else (
   echo Î´°²×° ±ùÏä£¬Ìø¹ı¼¤»î
 )
@@ -72,12 +72,53 @@ echo.
 :brevent
 adb shell pm list packages | findstr /i "me.piebridge.brevent" > nul
 if %errorlevel%==0 (
-echo ÒÑ°²×° ºÚãĞ£¬Ö´ĞĞ¼¤»îÃüÁî...
-  adb shell sh /data/data/me.piebridge.brevent/brevent.sh||goto fix
+  echo ÒÑ°²×° ºÚãĞ£¬Ö´ĞĞ¼¤»îÃüÁî...
+  adb shell sh /data/data/me.piebridge.brevent/brevent.sh || goto fix
 ) else (
   echo Î´°²×° ºÚãĞ£¬Ìø¹ı¼¤»î
 )
 echo.
+
+::È¨ÏŞ¹· ºÍ Ğ¡ºÚÎİ ÓÉÓÚÍêÕûÈÕÖ¾Ì«³¤£¬ÒÔ¼°¿ÉÄÜÒòÎª°æ±¾ÎÊÌâ¼¤»îÊ§°Ü£¬¹Ê×öÌØÊâ´¦Àí
+
+:permissiondog
+adb shell pm list packages | findstr /i "com.web1n.permissiondog" > nul
+if %errorlevel%==0 (
+  echo ÒÑ°²×° È¨ÏŞ¹·£¬Ö´ĞĞ¼¤»îÃüÁî...
+  adb shell sh /storage/emulated/0/Android/data/com.web1n.permissiondog/files/starter.sh > nul
+  if %errorlevel%==0 (
+    echo È¨ÏŞ¹· ¼¤»î³É¹¦
+    echo ¼øÓÚÈ¨ÏŞ¹·Ö´ĞĞ¼¤»îÃüÁîºóÎŞÂÛÊÇ·ñ³É¹¦¶¼»áÏÔÊ¾ÍêÕûÈÕÖ¾£¬´Ë´¦ÒÑÒş²Ø»ØÏÔ
+  ) else (
+    echo È¨ÏŞ¹· ¼¤»îÊ§°Ü£¬¾ßÌåÈÕÖ¾Çë×ÔĞĞÖ´ĞĞ¼¤»îÃüÁîºó²é¿´
+    echo ×¢Òâ£ºÈ¨ÏŞ¹·¿ÉÄÜÎŞ·¨Õı³£¼¤»î
+  )
+) else (
+  echo Î´°²×° È¨ÏŞ¹·£¬Ìø¹ı¼¤»î
+)
+echo.
+
+:stopapp
+adb shell pm list packages | findstr /i "web1n.stopapp" > nul
+if %errorlevel%==0 (
+  echo ÒÑ°²×° Ğ¡ºÚÎİ£¬Ö´ĞĞ¼¤»îÃüÁî...
+  adb shell sh /storage/emulated/0/Android/data/web1n.stopapp/files/starter.sh > nul
+  if %errorlevel%==0 (
+    echo Ğ¡ºÚÎİ ¼¤»î³É¹¦
+    echo ¼øÓÚĞ¡ºÚÎİÖ´ĞĞ¼¤»îÃüÁîºóÎŞÂÛÊÇ·ñ³É¹¦¶¼»áÏÔÊ¾ÍêÕûÈÕÖ¾£¬´Ë´¦ÒÑÒş²Ø»ØÏÔ
+  ) else (
+      echo Ğ¡ºÚÎİ ¼¤»îÊ§°Ü£¬ÖØÊÔ²¢Êä³öÈÕÖ¾...
+      adb shell sh /storage/emulated/0/Android/data/web1n.stopapp/files/starter.sh
+      echo ×¢Òâ£ºĞ¡ºÚÎİ¿ÉÄÜÎŞ·¨Õı³£¼¤»î
+      adb shell dumpsys package web1n.stopapp | findstr /C:"versionCode"
+      echo Èô¡°versionCode¡±Ğ¡ÓÚ 297 Çë³¢ÊÔÉı¼¶Ó¦ÓÃ°æ±¾
+      pause
+  )
+) else (
+  echo Î´°²×° Ğ¡ºÚÎİ£¬Ìø¹ı¼¤»î
+)
+echo.
+
 
 echo È«²¿Ö´ĞĞÍê³É£¬¹Ø±Õ ADB ·şÎñ
 adb kill-server
@@ -97,8 +138,8 @@ echo ÈôÏÔÊ¾½á¹û£¬Ôò´ú±í¸Ã¶Ë¿ÚÒÑ±»ÆäËû½ø³ÌÕ¼ÓÃ¡£»ØÏÔ×îÓÒ²àÎª¸Ã½ø³Ì¶ÔÓ¦ PID£¬ÇëÔÚÈ
 echo.
 echo == ³£¼ûÎÊÌâ ==
 echo 1. ÈôÌáÊ¾¡°'adb' ²»ÊÇÄÚ²¿»òÍâ²¿ÃüÁî...¡±£¬ÇëÈ·±£´Ë½Å±¾ÊÇ·ñºÍ ADB Ïà¹Ø¹¤¾ß·ÅÔÚÍ¬Ò»ÎÄ¼ş¼ĞÏÂ£¬»òÈ·±£ÄãµÄ¼ÆËã»úÊÇ·ñÓĞADBÖ´ĞĞ»·¾³£¨¿É²Î¿¼ÍøÂç½Ì³Ì£©
-echo 2. ¼¤»îÄ³¸öÓ¦ÓÃÊ±ÈôÌáÊ¾¡°no such file or directory¡±£¬ÇëÏÈÔÚÉè±¸ÉÏÆô¶¯Ò»´Î¸ÃÓ¦ÓÃ
-echo 3. ÈôÌáÊ¾¡°adb server version (7601) doesn't match this client (41); killing...¡±£¬Çë¹Ø±Õ¼ÆËã»úÉÏÕıÔÚÔËĞĞµÄ¡°ÊÖ»úÖúÊÖ¡±ÀàÈí¼ş£¬Èç¡°360ÊÖ»úÖúÊÖ¡±¡°Â³´óÊ¦ÊÖ»úÖúÊÖ¡±µÈ
+echo 2. ¼¤»îÄ³¸öÓ¦ÓÃÊ±ÈôÌáÊ¾¡°no such file or directory¡±£¬ÇëÏÈÔÚÉè±¸ÉÏÆô¶¯Ò»´Î¸ÃÓ¦ÓÃ²¢Ñ¡Ôñ¶ÔÓ¦µÄÄ£Ê½
+echo 3. ÈôÌáÊ¾¡°adb server version (xxx) doesn't match this client (xxx); killing...¡±£¬Çë¹Ø±Õ¼ÆËã»úÉÏÕıÔÚÔËĞĞµÄ¡°ÊÖ»úÖúÊÖ¡±ÀàÈí¼ş£¬Èç¡°360ÊÖ»úÖúÊÖ¡±¡°Â³´óÊ¦ÊÖ»úÖúÊÖ¡±µÈ
 echo.
 pause
 cls

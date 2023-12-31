@@ -23,6 +23,7 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 - [Scene](http://vtools.omarea.com/#/)
 - [冰箱](https://www.coolapk.com/apk/com.catchingnow.icebox)
 - [黑阈](https://brevent.jianyv.com/)
+- [小黑屋]()（麦克斯韦妖）
 
 ### 设备管理员（Device Admin）
 
