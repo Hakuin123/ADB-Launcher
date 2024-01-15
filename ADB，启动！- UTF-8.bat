@@ -1,6 +1,6 @@
 @echo off
-chcp 936 > nul
-::如果出现乱码请尝试使用UTF-8版本
+chcp 65001 > nul
+::如果出现乱码请尝试使用GB2312版本
 title ADB，启动！  v1.2  by 白隐Hakuin
 :: 初始化忽略错误变量
 set IGNORE_ERROR=0
