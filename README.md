@@ -12,6 +12,7 @@
 - 未找到 ADB 工具时提醒并给出解决方案
 - 执行遇到错误时尝试关闭正在运行的其它 ADB 进程防止冲突
 - 执行遇到错误时提供疑难解答
+- 可选忽略报错继续执行
 
 ## 支持激活的应用
 
@@ -26,19 +27,25 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 - [小黑屋](https://stopapp.https.gs/)（麦克斯韦妖）
 - [权限狗](https://www.baidu.com/s?wd=%E6%9D%83%E9%99%90%E7%8B%97)
 
-### 设备管理员（Device Admin）
+### 设备管理员（DeviceAdmin）
 
-TO DO
+待添加
 
-### 设备所有者（Device Owner）
+### 设备所有者（DeviceOwner）（待添加）
 
-TO DO
+- [Dhizuku](https://github.com/iamr0s/Dhizuku)
+
+> 需要借助设备所有者权限的应用数量繁多，但Android 系统设定具有`设备所有者`权限的应用有且仅能有一个。Dhizuku 参考 Shizuku 的设计思想，分享 DeviceOwner (设备所有者) 权限给其余应用
 
 ## TO DO
 
+* 执行完毕后添加使用技巧提示
+* 执行完毕后返回桌面（部分应用被激活后会被唤醒到前台）
+* 支持自动故障排查并尝试解决
+* 更完善的细分的错误提示
+* 可选是否输出部分应用日志
 * 支持激活设备管理员模式
 * 支持激活设备所有者模式
-* 支持自动故障排查并尝试解决
 * idk
 
 
@@ -51,3 +58,5 @@ TO DO
 [SDK 平台工具版本说明 - Android Developers](https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn)
 
 [冰箱 Ice Box 应用在线文档](https://iceboxdoc.catchingnow.cn/)
+
+[如何激活Dhizuku](https://github.com/iamr0s/Dhizuku/discussions/16)
