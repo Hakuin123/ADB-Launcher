@@ -1,7 +1,7 @@
 @echo off
 chcp 936 > nul
 ::如果出现乱码请尝试使用UTF-8版本
-title ADB，启动！  v1.3  by 白隐Hakuin
+title ADB，启动！  v1.4  by 白隐Hakuin
 
 :setVar
 :: 开启“延迟环境变量扩展”
