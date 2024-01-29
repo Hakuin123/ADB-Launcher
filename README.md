@@ -28,13 +28,17 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 - [小黑屋](https://stopapp.https.gs/)（麦克斯韦妖）
 - [权限狗](https://www.baidu.com/s?wd=%E6%9D%83%E9%99%90%E7%8B%97)
 
+更多应用陆续支持中，欢迎[提交 issue ](https://github.com/Hakuin123/ADB-Launcher/issues/new/choose)补充~
+
 ### 设备管理员（DeviceAdmin）
 
-待添加
+现阶段仅利用设备管理员权限就可运作的玩机工具较少，欢迎[提交 issue ](https://github.com/Hakuin123/ADB-Launcher/issues/new/choose)补充~
 
-### 设备所有者（DeviceOwner）（待添加）
+### ~~设备所有者（DeviceOwner）~~
 
-- [Dhizuku](https://github.com/iamr0s/Dhizuku)
+注：经评估后决定**不加入**`激活设备管理员模式`功能，原因详见[此处](https://github.com/Hakuin123/ADB-Launcher/issues/1)。推荐使用[秋之盒](https://atmb.top/guide/basic/dpm/)实现此功能。
+
+~~- [Dhizuku](https://github.com/iamr0s/Dhizuku)~~
 
 > 需要借助设备所有者权限的应用数量繁多，但Android 系统设定具有`设备所有者`权限的应用有且仅能有一个。Dhizuku 参考 Shizuku 的设计思想，分享 DeviceOwner (设备所有者) 权限给其余应用
 
@@ -44,9 +48,8 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 * 更完善的细分的错误提示
 * 可选是否输出部分应用日志
 * 支持激活设备管理员模式
-* 支持激活设备所有者模式
 * （待评估）执行完毕后返回桌面（部分应用被激活后会被唤醒到前台）
-* idk
+* ~~idk~~
 
 
 ## 参考文献
@@ -60,3 +63,7 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 [冰箱 Ice Box 应用在线文档](https://iceboxdoc.catchingnow.cn/)
 
 [如何激活Dhizuku](https://github.com/iamr0s/Dhizuku/discussions/16)
+
+[秋之盒](https://atmb.top/)
+
+[Android漫谈](https://atmb.top/guide/advanced/something_about_android/)
