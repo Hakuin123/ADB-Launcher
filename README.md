@@ -42,6 +42,14 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 
 > 需要借助设备所有者权限的应用数量繁多，但Android 系统设定具有`设备所有者`权限的应用有且仅能有一个。Dhizuku 参考 Shizuku 的设计思想，分享 DeviceOwner (设备所有者) 权限给其余应用
 
+## 下载 & 使用
+1. 转到 [Releases](https://github.com/Hakuin123/ADB-Launcher/releases/latest) 以获取最新版本
+1. 在更新内容下方的`Assets`中选择`Source code(zip)`
+2. 下载后**解压**`zip`格式的压缩文件
+3. 双击或右键以管理员模式运行其中的`ADB，启动！- UTF-8.bat`或`ADB，启动！- GB2312.bat`
+
+若遇到中文乱码问题，请尝试运行文件名中带有`GB2312`字样的版本，或自行搜索“[cmd显示中文乱码](https://tools.miku.ac/o/search_help/?q=Z2l0aHViIGNtZOaYvuekuuS4reaWh-S5seeggQ)”相关解决方案
+
 ## TO DO
 
 * 支持自动故障排查并尝试解决
