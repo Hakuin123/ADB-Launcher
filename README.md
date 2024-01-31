@@ -11,6 +11,7 @@
 - 自动识别并跳过激活未安装的应用
 - 未找到 ADB 工具时提醒并给出解决方案
 - 执行遇到错误时尝试关闭正在运行的其它 ADB 进程防止冲突
+- 检查应用激活脚本是否存在
 - 执行遇到错误时提供疑难解答
 - 可选忽略报错继续执行
 - 执行完毕后添加使用技巧提示
@@ -38,7 +39,7 @@ Tips：当连接的设备未安装目标应用时，将跳过激活。
 
 注：经评估后决定**不加入**`激活设备管理员模式`功能，原因详见[此处](https://github.com/Hakuin123/ADB-Launcher/issues/1)。推荐使用[秋之盒](https://atmb.top/guide/basic/dpm/)实现此功能。
 
-~~- [Dhizuku](https://github.com/iamr0s/Dhizuku)~~
+- ~~[Dhizuku](https://github.com/iamr0s/Dhizuku)~~
 
 > 需要借助设备所有者权限的应用数量繁多，但Android 系统设定具有`设备所有者`权限的应用有且仅能有一个。Dhizuku 参考 Shizuku 的设计思想，分享 DeviceOwner (设备所有者) 权限给其余应用
 
