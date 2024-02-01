@@ -1,7 +1,7 @@
 @echo off
 chcp 936 > nul
 :: 如果出现乱码请尝试使用 UTF-8 版本
-title ADB，启动！  v1.5  by 白隐Hakuin
+title ADB，启动！  v1.6  by 白隐Hakuin
 
 :setVar
 :: 开启“延迟环境变量扩展”
@@ -32,9 +32,7 @@ echo.
 echo = 启动 ADB 服务 =
 adb start-server
 if not %errorlevel% == 0 (
-  if %IGNORE_ERROR% == 1 (
-    echo [强制执行] 已选择强制执行模式，忽略错误并继续...
-  )
+  if %IGNORE_ERROR% == 1 echo [强制执行] 已选择强制执行模式，忽略错误并继续...
   goto :fix-adb
 )
 echo 等待设备连接...
@@ -47,15 +45,13 @@ echo = 已连接设备 =
 adb devices -l
 
 :wireless
-echo = 启动无线调试 =
+echo = 启动“无线调试” =
 adb tcpip 5555
 if not %errorlevel% == 0 (
-  if %IGNORE_ERROR% == 1 (
-    echo [强制执行] 已选择强制执行模式，忽略错误并继续...
-  )
+  if %IGNORE_ERROR% == 1 echo [强制执行] 已选择强制执行模式，忽略错误并继续...
   goto :fix-adb
 )
-echo [注意] 无线调试启用后有一定风险，请勿允许来历不明的 ADB 调试请求
+echo [注意] 此方式启用后有一定风险，请勿允许来历不明的 ADB 调试请求
 echo 等待自动重新连接...
 adb wait-for-device
 echo.
@@ -74,9 +70,7 @@ adb shell pm list packages | findstr /i "moe.shizuku.privileged.api" > nul
 if %errorlevel% == 0 (
   echo 已安装 Shizuku，执行启动命令...
   adb shell sh %Act_Shizuku% || goto :fix-app
-) else (
-  echo 未安装 Shizuku，跳过启动
-)
+) else echo 未安装 Shizuku，跳过启动
 echo.
 
 
@@ -85,9 +79,7 @@ adb shell pm list packages | findstr /i "com.omarea.vtools" > nul
 if %errorlevel% == 0 (
   echo 已安装 Scene，执行激活命令...
   adb shell sh %Act_Scene% || goto :fix-app
-) else (
-  echo 未安装 Scene，跳过激活
-)
+) else echo 未安装 Scene，跳过激活
 echo.
 
 
@@ -96,9 +88,7 @@ adb shell pm list packages | findstr /i "com.catchingnow.icebox" > nul
 if %errorlevel% == 0 (
   echo 已安装 冰箱，执行激活命令...
   adb shell sh %Act_IceBox% || goto :fix-app
-) else (
-  echo 未安装 冰箱，跳过激活
-)
+) else echo 未安装 冰箱，跳过激活
 echo.
 
 
@@ -107,9 +97,7 @@ adb shell pm list packages | findstr /i "me.piebridge.brevent" > nul
 if %errorlevel% == 0 (
   echo 已安装 黑阈，执行激活命令...
   adb shell sh %Act_Brevent% || goto :fix-app
-) else (
-  echo 未安装 黑阈，跳过激活
-)
+) else echo 未安装 黑阈，跳过激活
 echo.
 
 ::小黑屋 和 权限狗 由于完整日志太长，以及可能因为版本问题激活失败，故做特殊处理
@@ -131,9 +119,7 @@ if %errorlevel% == 0 (
       goto :fix-app
     )
   )
-) else (
-  echo 未安装 小黑屋，跳过激活
-)
+) else echo 未安装 小黑屋，跳过激活
 echo.
 
 :permissiondog
@@ -153,9 +139,7 @@ if %errorlevel% == 0 (
       goto :fix-app
     )
   )
-) else (
-  echo 未安装 权限狗，跳过激活
-)
+) else echo 未安装 权限狗，跳过激活
 echo.
 
 
@@ -169,6 +153,14 @@ echo 2. 若因为网络环境改变使得 Shizuku 服务停止，
 echo 可在 Shizuku 中选择“通过无线调试启动”→“启动”→“5555”
 echo.
 echo 如需要激活 Dhizuku 等需要设备所有者权限的应用，请尝试秋之盒。
+
+for /f "usebackq" %%a in (`adb shell getprop ro.build.version.release`) do (
+  if %%a GEQ 11 (
+    echo 从 Android 11 开始，您可通过无线调试直接启动 Shizuku 而无需连接计算机
+    echo 您当前设备的 Android 系统版本号为 %%a，可在 Shizuku “通过无线调试启动”中了解详情
+  )
+)
+
 echo.
 echo.
 echo ============ SUCCESS! ============
@@ -226,10 +218,14 @@ goto :restart
 
 :restart
 echo.
-set /p IGNORE_ERROR="[提示] 请按回车键重新执行，或输入 1 进入忽略错误并重新执行（强制执行模式）："
-if "%IGNORE_ERROR%" == "1" (
-  cls
-  goto :start
-)
+echo [提示] 自动修复完成，请选择下一步操作...
+echo 回车键 - 重新执行
+echo 输入 1 - 重新执行且忽略错误（强制执行模式）
+echo 输入 2 - 尝试修复 ADB 错误
+echo 输入 3 - 尝试修复应用错误
+set /p IGNORE_ERROR="[提示] 请选择："
+if "%IGNORE_ERROR%" == "1" cls & goto :start
+if "%IGNORE_ERROR%" == "2" goto :fix-adb
+if "%IGNORE_ERROR%" == "3" goto :fix-app
 cls
 goto :start
