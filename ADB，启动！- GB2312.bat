@@ -193,7 +193,8 @@ for /f "tokens=5 delims= " %%a in ('netstat -ano ^| findstr :5037 ^| findstr "LI
       set "process_name=%%b"
       echo [注意] 占用端口的进程名为：!process_name!
     )
-    echo 尝试强制结束该进程...
+    echo [提示] 请尝试手动关闭该进程对应的程序，或按任意键尝试强制结束该进程
+    pause
     taskkill /F /PID !process_pid!
     if !errorlevel! == 0 (
       echo 已强制结束占用 5037 端口的进程，请尝试重新执行
