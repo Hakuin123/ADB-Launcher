@@ -152,7 +152,8 @@ echo.
 echo 2. 若因为网络环境改变使得 Shizuku 服务停止，
 echo 可在 Shizuku 中选择“通过无线调试启动”→“启动”→“5555”
 echo.
-echo 如需要激活 Dhizuku 等需要设备所有者权限的应用，请尝试秋之盒。
+echo 如需要激活 Dhizuku 等需要设备所有者权限的应用，请尝试使用“秋之盒”
+echo.
 
 for /f "usebackq" %%a in (`adb shell getprop ro.build.version.release`) do (
   if %%a GEQ 11 (
