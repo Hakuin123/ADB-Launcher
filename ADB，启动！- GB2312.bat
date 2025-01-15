@@ -11,6 +11,7 @@ set IGNORE_ERROR=0
 :: 初始化应用激活脚本路径
 set Act_Shizuku="/storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 set Act_Scene="/sdcard/Android/data/com.omarea.vtools/up.sh"
+set Act_Scene_2="/data/user/0/com.omarea.vtools/files/up.sh"
 set Act_IceBox="/sdcard/Android/data/com.catchingnow.icebox/files/start.sh"
 set Act_Brevent="/data/data/me.piebridge.brevent/brevent.sh"
 set Act_Stopapp="/storage/emulated/0/Android/data/web1n.stopapp/files/starter.sh"
@@ -52,7 +53,7 @@ if not %errorlevel% == 0 (
   goto :fix-adb
 )
 echo [注意] 此方式启用后有一定风险，请勿允许来历不明的 ADB 调试请求
-echo 等待自动重新连接...
+echo 等待自动重新连接...（部分设备需要手动重新连接）
 adb wait-for-device
 echo.
 
@@ -78,7 +79,7 @@ echo.
 adb shell pm list packages | findstr /i "com.omarea.vtools" > nul
 if %errorlevel% == 0 (
   echo 已安装 Scene，执行激活命令...
-  adb shell sh %Act_Scene% || goto :fix-app
+  adb shell sh %Act_Scene% || adb shell sh %Act_Scene_2% || goto :fix-app
 ) else echo 未安装 Scene，跳过激活
 echo.
 
@@ -205,7 +206,7 @@ echo == 执行遇到错误（应用），尝试修复 ==
 echo 检查应用激活脚本是否存在...
 set "NOT_FOUND="
 adb shell ls "%Act_Shizuku%" > nul || set "NOT_FOUND=!NOT_FOUND! Shizuku"
-adb shell ls "%Act_Scene%" > nul || set "NOT_FOUND=!NOT_FOUND! Scene"
+adb shell ls "%Act_Scene%" > nul || adb shell ls "%Act_Scene%" > nul || set "NOT_FOUND=!NOT_FOUND! Scene"
 adb shell ls "%Act_IceBox%" > nul || set "NOT_FOUND=!NOT_FOUND! 冰箱"
 adb shell ls "%Act_Brevent%" > nul || set "NOT_FOUND=!NOT_FOUND! 黑阈"
 adb shell ls "%Act_Stopapp%" > nul || set "NOT_FOUND=!NOT_FOUND! 小黑屋"
