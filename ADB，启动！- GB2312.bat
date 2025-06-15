@@ -47,13 +47,14 @@ adb devices -l
 
 :wireless
 echo = 启动“无线调试” =
+echo [注意] 此方式启用后有一定风险，请勿允许来历不明的 ADB 调试请求
 adb tcpip 5555
 if not %errorlevel% == 0 (
   if %IGNORE_ERROR% == 1 echo [强制执行] 已选择强制执行模式，忽略错误并继续...
   goto :fix-adb
 )
-echo [注意] 此方式启用后有一定风险，请勿允许来历不明的 ADB 调试请求
 echo 等待自动重新连接...（部分设备需要手动重新连接）
+timeout /t 1
 adb wait-for-device
 echo.
 
