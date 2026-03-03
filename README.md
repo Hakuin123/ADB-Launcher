@@ -21,7 +21,6 @@
 
 </details>
 
-
 ## 支持激活的应用
 
 > Tips：当连接的设备未安装目标应用时，将跳过激活。
@@ -71,6 +70,9 @@
 + Windows 批处理不支持数组或列表数据结构，所以使用条件判而断非循环，这导致代码无法复用以减小体积~~（其实是懒所以直接复制粘贴然后替换内容）~~。后续*可能*尝试给予优化。
 + 未来*可能*将项目语言更换为 Powershell，也*有可能*支持图形化界面。~~当然前提是肝得动~~
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/image?repos=Hakuin123/ADB-Launcher&type=date&legend=bottom-right)](https://www.star-history.com/?repos=Hakuin123%2FADB-Launcher&type=date&legend=top-left)
 
 ## 参考文献
 
